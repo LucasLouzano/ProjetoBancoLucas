@@ -10,14 +10,11 @@ public class Pessoas {
     @Column
     private String nome;
     @Column
-    private String sobrenome;
-    @Column
     private Integer idade;
 
-    public Pessoas(Long id, String nome, String sobrenome, Integer idade) {
+    public Pessoas(Long id, String nome, Integer idade) {
         this.id = id;
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.idade = idade;
     }
 
@@ -35,14 +32,6 @@ public class Pessoas {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public Integer getIdade() {

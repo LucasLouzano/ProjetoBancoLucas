@@ -1,4 +1,4 @@
-package com.Louzano.FuncionáriosdoBancoLucas;
+package com.Louzano.ProjetoSpring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

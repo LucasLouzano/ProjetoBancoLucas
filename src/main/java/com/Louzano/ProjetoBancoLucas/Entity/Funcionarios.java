@@ -1,8 +1,12 @@
-package com.Louzano.FuncionáriosdoBancoLucas.DTO;
+package com.Louzano.ProjetoSpring.Entity;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
-public class FuncionariosDTO {
+@Entity
+public class Funcionarios {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column
     private String nome;
     @Column
@@ -12,42 +16,51 @@ public class FuncionariosDTO {
     @Column
     private Integer idade;
 
-    public FuncionariosDTO(String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
+    public Funcionarios(Long id, String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
+        this.id = id;
         this.nome = nome;
         this.numerosIndentificacao = numerosIndentificacao;
         this.cargo = cargo;
         this.idade = idade;
     }
 
-    public String getNome() {
-        return nome;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Integer getNumerosIndentificacao() {
-        return numerosIndentificacao;
+    public String getNome() {
+        return nome;
     }
 
     public void setNumerosIndentificacao(Integer numerosIndentificacao) {
         this.numerosIndentificacao = numerosIndentificacao;
     }
 
-    public String getCargo() {
-        return cargo;
+    public Integer getNumeroIndentificacao() {
+        return numerosIndentificacao;
     }
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public String getCargo() {
+        return cargo;
     }
 
     public void setIdade(Integer idade) {
         this.idade = idade;
+    }
+
+    public Integer getIdade() {
+        return idade;
     }
 }

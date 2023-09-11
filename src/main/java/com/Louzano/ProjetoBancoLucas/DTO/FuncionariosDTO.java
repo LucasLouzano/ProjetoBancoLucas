@@ -1,12 +1,8 @@
-package com.Louzano.FuncionáriosdoBancoLucas.Entity;
+package com.Louzano.ProjetoSpring.DTO;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-@Entity
-public class Funcionarios {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class FuncionariosDTO {
     @Column
     private String nome;
     @Column
@@ -16,51 +12,42 @@ public class Funcionarios {
     @Column
     private Integer idade;
 
-    public Funcionarios(Long id, String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
-        this.id = id;
+    public FuncionariosDTO(String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
         this.nome = nome;
         this.numerosIndentificacao = numerosIndentificacao;
         this.cargo = cargo;
         this.idade = idade;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNumerosIndentificacao(Integer numerosIndentificacao) {
-        this.numerosIndentificacao = numerosIndentificacao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Integer getNumeroIndentificacao() {
+    public Integer getNumerosIndentificacao() {
         return numerosIndentificacao;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setNumerosIndentificacao(Integer numerosIndentificacao) {
+        this.numerosIndentificacao = numerosIndentificacao;
     }
 
     public String getCargo() {
         return cargo;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public Integer getIdade() {
         return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 }

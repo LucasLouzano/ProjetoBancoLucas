@@ -1,23 +1,10 @@
-package com.Louzano.ProjetoSpring.DTO;
-
-import jakarta.persistence.Column;
+package com.Louzano.ProjetoBancoLucas.DTO;
 
 public class FuncionariosDTO {
-    @Column
     private String nome;
-    @Column
     private Integer numerosIndentificacao;
-    @Column
     private String cargo;
-    @Column
     private Integer idade;
-
-    public FuncionariosDTO(String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
-        this.nome = nome;
-        this.numerosIndentificacao = numerosIndentificacao;
-        this.cargo = cargo;
-        this.idade = idade;
-    }
 
     public String getNome() {
         return nome;

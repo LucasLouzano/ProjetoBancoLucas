@@ -1,13 +1,13 @@
-package com.Louzano.ProjetoSpring;
+package com.Louzano.ProjetoBancoLucas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetoSpringApplication {
+public class ProjetoBancoLucasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetoSpringApplication.class, args);
+		SpringApplication.run(ProjetoBancoLucasApplication.class, args);
 	}
 
 }

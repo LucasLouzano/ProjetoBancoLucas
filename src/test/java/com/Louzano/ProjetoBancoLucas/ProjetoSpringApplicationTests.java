@@ -1,4 +1,4 @@
-package com.Louzano.ProjetoSpring;
+package com.Louzano.ProjetoBancoLucas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -18,6 +18,14 @@ public class Funcionarios {
     @Column
     private Integer idade;
 
+    public Funcionarios(Long id, String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
+        this.id = id;
+        this.nome = nome;
+        this.numerosIndentificacao = numerosIndentificacao;
+        this.cargo = cargo;
+        this.idade = idade;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

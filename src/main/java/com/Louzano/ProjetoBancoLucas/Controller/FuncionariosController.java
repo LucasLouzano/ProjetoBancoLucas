@@ -17,14 +17,8 @@ public class FuncionariosController {
 
     // vai está retornando uma lista de funcionarios
     @GetMapping("/Funcionarios")
-    public List<FuncionariosDTO> listafuncionarios(){
-      List<Funcionarios> funcionarios = funcionariosRepository.findAll();
-      return FuncionariosDTO.converter(funcionarios);
-    }
-    @PostMapping("/Funcionarios")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Funcionarios add(@RequestBody Funcionarios funcionarios){
-        return funcionariosRepository.save(funcionarios);
-    }
+    public List<Funcionarios> listafuncionarios() {
+        return funcionariosRepository.findAll();
 
+    }
 }

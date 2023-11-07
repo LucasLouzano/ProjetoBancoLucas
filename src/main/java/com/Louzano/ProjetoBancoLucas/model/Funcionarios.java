@@ -1,4 +1,4 @@
-package com.Louzano.ProjetoBancoLucas.Entity;
+package com.Louzano.ProjetoBancoLucas.model;
 
 
 import jakarta.persistence.*;

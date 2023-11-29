@@ -1,6 +1,7 @@
 package com.Louzano.ProjetoBancoLucas.model;
 
 
+import com.Louzano.ProjetoBancoLucas.enumeration.Sexo;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -9,16 +10,12 @@ import java.util.Date;
 public class Funcionarios {
     @Id
     @GeneratedValue
-    @Column
     private Long id;
-
-    private String nome;
-
-    private  String nomeCompleto;
-
-    private String cargo;
-
+    private String nomeCompleto;
     private Date nascimento;
+    @Enumerated(EnumType.STRING)
+    private Sexo sexo;
+    private String cargo;
 
     public void setId(Long id) {
         this.id = id;
@@ -26,14 +23,6 @@ public class Funcionarios {
 
     public Long getId() {
         return id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getNomeCompleto() {
@@ -57,5 +46,13 @@ public class Funcionarios {
     }
     public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
     }
 }

@@ -3,28 +3,22 @@ package com.Louzano.ProjetoBancoLucas.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Funcionarios {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column
     private Long id;
-    @Column
-    private String nome;
-    @Column
-    private Integer numerosIndentificacao;
-    @Column
-    private String cargo;
-    @Column
-    private Integer idade;
 
-    public Funcionarios(Long id, String nome, Integer numerosIndentificacao, String cargo, Integer idade) {
-        this.id = id;
-        this.nome = nome;
-        this.numerosIndentificacao = numerosIndentificacao;
-        this.cargo = cargo;
-        this.idade = idade;
-    }
+    private String nome;
+
+    private  String nomeCompleto;
+
+    private String cargo;
+
+    private Date nascimento;
 
     public void setId(Long id) {
         this.id = id;
@@ -42,12 +36,12 @@ public class Funcionarios {
         return nome;
     }
 
-    public void setNumerosIndentificacao(Integer numerosIndentificacao) {
-        this.numerosIndentificacao = numerosIndentificacao;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public Integer getNumeroIndentificacao() {
-        return numerosIndentificacao;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
     public void setCargo(String cargo) {
@@ -58,11 +52,10 @@ public class Funcionarios {
         return cargo;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public Date getNascimento() {
+        return nascimento;
     }
-
-    public Integer getIdade() {
-        return idade;
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
     }
 }

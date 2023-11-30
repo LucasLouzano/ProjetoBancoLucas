@@ -4,6 +4,7 @@ package com.Louzano.ProjetoBancoLucas.model;
 import com.Louzano.ProjetoBancoLucas.enumeration.Sexo;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,7 +13,7 @@ public class Funcionarios {
     @GeneratedValue
     private Long id;
     private String nomeCompleto;
-    private Date nascimento;
+    private LocalDate nascimento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
     private String cargo;
@@ -41,10 +42,10 @@ public class Funcionarios {
         return cargo;
     }
 
-    public Date getNascimento() {
+    public  LocalDate getNascimento() {
         return nascimento;
     }
-    public void setNascimento(Date nascimento) {
+    public void setNascimento( LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 

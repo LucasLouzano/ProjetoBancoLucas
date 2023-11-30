@@ -14,11 +14,11 @@ public class FuncionariosController {
 
     // vai está retornando uma lista de funcionarios
     @GetMapping("/Funcionarios")
-    public List<Funcionarios> listafuncionarios() {
-        return funcionariosService.findAll();
+    public List<Funcionarios> funcionarioslist() {
+        return funcionariosService.funcionarioServicoimpl();
     }
     @GetMapping("/Funcionarios/{id}")
-    public Funcionarios getFuncionarios(@PathVariable Long id){
+    public Funcionarios search (@PathVariable Long id){
         return funcionariosService.Buscar(id);
     }
     @PostMapping()

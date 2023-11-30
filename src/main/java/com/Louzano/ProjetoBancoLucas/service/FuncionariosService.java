@@ -11,7 +11,7 @@ import java.util.List;
 public class FuncionariosService {
     @Autowired
     private FuncionariosRepository funcionariosRepository;
-    public List<Funcionarios> findAll() {
+    public List<Funcionarios> funcionarioServicoimpl() {
         return funcionariosRepository.findAll();
     }
     public Funcionarios Buscar(Long id) {

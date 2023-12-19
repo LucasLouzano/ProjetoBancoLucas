@@ -1,6 +1,6 @@
 package com.Louzano.ProjetoBancoLucas;
 import  static org.assertj.core.api.Assertions.assertThat;
-import com.Louzano.ProjetoBancoLucas.dto.ConverterFuncionariosDto;
+import com.Louzano.ProjetoBancoLucas.mapper.FuncionariosMapper;
 import com.Louzano.ProjetoBancoLucas.dto.FuncionariosDTO;
 import com.Louzano.ProjetoBancoLucas.model.Funcionarios;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class FuncionariosTest {
         LocalDate dataNascimento = LocalDate.of(1990, Month.JUNE, 8);
         funcionarios.setNomeCompleto("Lucas Louzano");
         funcionarios.setNascimento(dataNascimento);
-        FuncionariosDTO dto = ConverterFuncionariosDto.CONVERTER.getDTO(funcionarios);
+        FuncionariosDTO dto = FuncionariosMapper.CONVERTER.FuncionariotomodelFucionarioDTO(funcionarios);
 
         assertThat(dto.getNomeCompleto()).isEqualTo("Lucas Louzano");
         assertThat(dto.getNascimento()).isEqualTo(dataNascimento);

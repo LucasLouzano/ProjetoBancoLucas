@@ -1,4 +1,4 @@
-package com.Louzano.ProjetoBancoLucas.Repository;
+package com.Louzano.ProjetoBancoLucas.repository;
 
 import com.Louzano.ProjetoBancoLucas.model.Funcionarios;
 import org.springframework.data.jpa.repository.JpaRepository;

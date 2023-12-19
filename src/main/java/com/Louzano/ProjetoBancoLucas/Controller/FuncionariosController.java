@@ -1,21 +1,23 @@
 package com.Louzano.ProjetoBancoLucas.Controller;
 
+import com.Louzano.ProjetoBancoLucas.dto.FuncionariosDTO;
 import com.Louzano.ProjetoBancoLucas.model.Funcionarios;
 import com.Louzano.ProjetoBancoLucas.service.FuncionariosService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionariosController {
     @Autowired
     private FuncionariosService funcionariosService;
 
-    // vai está retornando uma lista de funcionarios
     @GetMapping("/Funcionarios")
-    public List<Funcionarios> funcionarioslist() {
-        return funcionariosService.funcionarioServicoimpl();
+    public FuncionariosDTO getFuncionarioDTO(Long id) {
+        return funcionariosService.getFuncionarioDTO(id);
     }
     @GetMapping("/Funcionarios/{id}")
     public Funcionarios search (@PathVariable Long id){

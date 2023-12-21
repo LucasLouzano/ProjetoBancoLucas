@@ -1,7 +1,5 @@
 package com.Louzano.ProjetoBancoLucas.service;
 
-import com.Louzano.ProjetoBancoLucas.dto.UserSystemDTO;
-import com.Louzano.ProjetoBancoLucas.mapper.UserSystemMapper;
 import com.Louzano.ProjetoBancoLucas.model.UserSystem;
 import com.Louzano.ProjetoBancoLucas.repository.UserSystemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +11,10 @@ import java.util.UUID;
 public class UserSystemService {
     @Autowired
     private UserSystemRepository userSystemRepository;
-    @Autowired
-    private UserSystemMapper userSystemMapper;
 
-    public UserSystemDTO getUserAccount(UUID userId) {
-        UserSystem userSystem = userSystemRepository.findById(userId).get();
-        if (userSystem == null) {
-        }
-        return userSystemMapper.UserSystemToUserSystemDTO(userSystem);
+
+    public UserSystem getUserSystem(UUID userId) {
+        return userSystemRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Sistema de usuário não encontrado por id: "));
     }
 }

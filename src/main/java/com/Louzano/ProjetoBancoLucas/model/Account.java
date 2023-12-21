@@ -1,34 +1,19 @@
 package com.Louzano.ProjetoBancoLucas.model;
 
-import jakarta.persistence.Entity;
-
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.UUID;
 @Entity
+@Getter
+@Setter
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private UUID codAccount;
+    @Column
     private int branch;
+    @Column
     private int account;
-
-    public UUID getCodAccount() {
-        return codAccount;
-    }
-    public void setCodAccount(UUID codAccount) {
-        this.codAccount = codAccount;
-    }
-
-    public int getBranch() {
-        return branch;
-    }
-
-    public void setBranch(int branch) {
-        this.branch = branch;
-    }
-
-    public int getAccount() {
-        return account;
-    }
-
-    public void setAccount(int account) {
-        this.account = account;
-    }
 }

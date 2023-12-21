@@ -1,6 +1,6 @@
 package com.Louzano.ProjetoBancoLucas.mapper;
 
-import com.Louzano.ProjetoBancoLucas.dto.UserSystemDTO;
+import com.Louzano.ProjetoBancoLucas.dto.UserSystemDto;
 import com.Louzano.ProjetoBancoLucas.model.UserSystem;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -10,5 +10,9 @@ public interface UserSystemMapper {
 
         UserSystemMapper CONVERTER = Mappers.getMapper(UserSystemMapper.class);
 
-        UserSystemDTO UserSystemToUserSystemDTO(UserSystem userSystem);
+        UserSystemDto UserSystemToUserSystemDTO(UserSystem userSystem);
 }
+
+
+//   @Mapping(source = "nomeCompleto", target = "nomeCompleto")
+//  @Mapping(source = "nascimento", target = "nascimento")

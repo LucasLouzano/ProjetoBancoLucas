@@ -1,8 +1,6 @@
 package com.Louzano.ProjetoBancoLucas;
 import  static org.assertj.core.api.Assertions.assertThat;
-import com.Louzano.ProjetoBancoLucas.mapper.FuncionariosMapper;
-import com.Louzano.ProjetoBancoLucas.dto.FuncionariosDTO;
-import com.Louzano.ProjetoBancoLucas.model.Funcionarios;
+
 import org.junit.Test;
 
 import java.time.LocalDate;

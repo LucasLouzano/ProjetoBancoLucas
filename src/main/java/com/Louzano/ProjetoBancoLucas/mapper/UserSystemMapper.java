@@ -8,11 +8,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface UserSystemMapper {
 
-        UserSystemMapper CONVERTER = Mappers.getMapper(UserSystemMapper.class);
+    UserSystemMapper CONVERTER = Mappers.getMapper(UserSystemMapper.class);
 
-        UserSystemDto UserSystemToUserSystemDTO(UserSystem userSystem);
+    UserSystemDto userSystemToUserSystemDTO(UserSystem userSystem);
 }
-
-
-//   @Mapping(source = "nomeCompleto", target = "nomeCompleto")
-//  @Mapping(source = "nascimento", target = "nascimento")

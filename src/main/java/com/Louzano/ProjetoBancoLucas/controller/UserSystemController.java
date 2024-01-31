@@ -20,9 +20,9 @@ public class UserSystemController {
     private UserSystemMapper userSystemMapper;
 
     @GetMapping("/{userId}")
-    public UserSystemDto getUsersDTO(@PathVariable Long userId) {
+    public ResponseEntity<UserSystemDto> getUsersDTO(@PathVariable Long userId) {
         UserSystem userSystem = this.service.findById(userId);
-        return userSystemMapper.userSystemToUserSystemDTO(userSystem);
+        return ResponseEntity.ok(userSystemMapper.userSystemToUserSystemDTO(userSystem));
     }
 
     @GetMapping

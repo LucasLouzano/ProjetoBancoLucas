@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserSystemService {
@@ -14,13 +15,10 @@ public class UserSystemService {
     public List<UserSystem> findAll() {
         return userSystemRepository.findAll();
     }
-
-
     public UserSystem findById(Long userId) {
-        return userSystemRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("Sistema de usuário não encontrado por id: "));
+        Optional<UserSystem> userSystem = userSystemRepository.findById(userId);
+        return userSystem.orElse(null);
     }
-
     public UserSystem save(UserSystem userSystem) {
         if (userSystem != null) {
             this.userSystemRepository.save(userSystem);

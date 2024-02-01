@@ -3,7 +3,7 @@ package com.Louzano.ProjetoBancoLucas.controller;
 import com.Louzano.ProjetoBancoLucas.dto.UserSystemDto;
 import com.Louzano.ProjetoBancoLucas.mapper.UserSystemMapper;
 import com.Louzano.ProjetoBancoLucas.model.UserSystem;
-import com.Louzano.ProjetoBancoLucas.service.UserSystemService;
+import com.Louzano.ProjetoBancoLucas.service.impl.UserSystemServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +23,7 @@ public class UserSystemControllerTest {
     @InjectMocks
     private UserSystemController controller;
     @Mock
-    private UserSystemService service;
+    private UserSystemServiceImpl service;
     @Mock
     private UserSystemMapper userSystemMapper;
 
@@ -44,7 +44,7 @@ public class UserSystemControllerTest {
         UserSystemDto usersDTO = new UserSystemDto();
         usersDTO.setName("Lucas");
         usersDTO.setDocumentType(12);
-        when(userSystemMapper.userSystemToUserSystemDTO(userSystem)).thenReturn(usersDTO);
+        when(userSystemMapper.userSystemToUserSystemDTO(any())).thenReturn(usersDTO);
         ResponseEntity<UserSystemDto> response = controller.getUsersDTO(1L);
 
         assertNotNull(response.getBody());
@@ -56,18 +56,15 @@ public class UserSystemControllerTest {
 
     @Test
     public void getUserDto() {
-        UserSystem userSystem = new UserSystem();
-        userSystem.setId(1L);
-        userSystem.setName("Lucas");
-        userSystem.setDocumentType(12);
-        when(service.findAll()).thenReturn(List.of(userSystem));
+        UserSystemDto userDto = new UserSystemDto();
+        userDto.setName("Lucas");
+        userDto.setDocumentType(12);
+        when(service.findAll()).thenReturn(List.of(userDto));
 
-        UserSystemDto userSystemDto = new UserSystemDto();
-        userSystemDto.setName("Lucas");
-        userSystemDto.setDocumentType(12);
-        when(userSystemMapper.userSystemToUserSystemDTO(any())).thenReturn(userSystemDto);
 
-        List<UserSystemDto> response = controller.getUserDto();
+        when(userSystemMapper.userSystemToUserSystemDTO(any())).thenReturn(userDto);
+
+        List<UserSystemDto> response = controller.getUserDto().getBody();
 
 
         assertNotNull(response);
@@ -80,8 +77,7 @@ public class UserSystemControllerTest {
 
     @Test
    public void saveUsers() {
-        UserSystem userSystem = new UserSystem();
-        userSystem.setId(1L);
+        UserSystemDto userSystem = new UserSystemDto();
         userSystem.setName("Lucas");
         userSystem.setDocumentType(12);
         when(service.save(any())).thenReturn(userSystem);

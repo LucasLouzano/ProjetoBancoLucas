@@ -6,10 +6,8 @@ import com.Louzano.ProjetoBancoLucas.repository.UserSystemRepository;
 import com.Louzano.ProjetoBancoLucas.service.UserSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.UUID;
 
 @Service
 public class UserSystemServiceImpl implements UserSystemService {
@@ -19,19 +17,20 @@ public class UserSystemServiceImpl implements UserSystemService {
     @Autowired
     private UserSystemMapper userSystemMapper;
 
+    @Override
     public List<UserSystemDto> findAll() {
         return userSystemRepository.findAll()
                 .stream()
                 .map(userSystemMapper::userSystemToUserSystemDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
-
-    public UserSystemDto findById(Long userId) {
+    @Override
+    public UserSystemDto findById(UUID userId) {
         UserSystem userSystem = userSystemRepository.findById(userId).get();
-        UserSystemDto usersDto = userSystemMapper.userSystemToUserSystemDTO(userSystem);
-        return usersDto;
+        return userSystemMapper.userSystemToUserSystemDTO(userSystem);
     }
 
+    @Override
     public UserSystemDto save(UserSystem userSystem) {
         if (userSystem != null) {
             UserSystem savedUserSystem = userSystemRepository.save(userSystem);
@@ -40,5 +39,4 @@ public class UserSystemServiceImpl implements UserSystemService {
         return null;
     }
 }
-
 

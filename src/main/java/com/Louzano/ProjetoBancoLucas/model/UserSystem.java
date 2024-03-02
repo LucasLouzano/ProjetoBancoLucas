@@ -1,27 +1,34 @@
 package com.Louzano.ProjetoBancoLucas.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserSystem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     private String name;
     private int documentType;
+    @OneToMany
+    private Account account;
 
-    public Long getId() {
+    public UserSystem() {
+    }
+
+    public UserSystem(UserSystem userSystem) {
+        this.id = userSystem.getId();
+        this.name = userSystem.getName();
+        this.documentType = userSystem.getDocumentType();
+        this.account = userSystem.getAccount();
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -39,6 +46,14 @@ public class UserSystem {
 
     public void setDocumentType(int documentType) {
         this.documentType = documentType;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
 

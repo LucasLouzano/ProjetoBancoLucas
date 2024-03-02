@@ -6,10 +6,15 @@ public class UserSystemDto {
 
     public UserSystemDto() {
     }
-    public UserSystemDto(UserSystemDto userSystemDto) {
-        this.name = userSystemDto.getName();
-        this.documentType = userSystemDto.getDocumentType();
+
+    public UserSystemDto(String name, int documentType) {
+        this.name = name;
+        this.documentType = documentType;
     }
+    //    public UserSystemDto(UserSystemDto userSystemDto) {
+//        this.name = userSystemDto.getName();
+//        this.documentType = userSystemDto.getDocumentType();
+//    }
 
     public String getName() {
         return name;

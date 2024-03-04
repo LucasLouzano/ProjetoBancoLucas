@@ -1,59 +1,24 @@
 package com.Louzano.ProjetoBancoLucas.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UserSystem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
     private int documentType;
-    @OneToMany
+    @ManyToOne
     private Account account;
-
-    public UserSystem() {
-    }
-
-    public UserSystem(UserSystem userSystem) {
-        this.id = userSystem.getId();
-        this.name = userSystem.getName();
-        this.documentType = userSystem.getDocumentType();
-        this.account = userSystem.getAccount();
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getDocumentType() {
-        return documentType;
-    }
-
-    public void setDocumentType(int documentType) {
-        this.documentType = documentType;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 }
-

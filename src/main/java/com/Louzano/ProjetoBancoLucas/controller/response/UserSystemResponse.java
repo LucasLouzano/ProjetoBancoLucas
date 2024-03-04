@@ -1,32 +1,16 @@
 package com.Louzano.ProjetoBancoLucas.controller.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UserSystemResponse {
     private String name;
     private int documentType;
-
-    public UserSystemResponse() {
-    }
-
-    public UserSystemResponse(String name, int documentType) {
-        this.name = name;
-        this.documentType = documentType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getDocumentType() {
-        return documentType;
-    }
-
-    public void setDocumentType(int documentType) {
-        this.documentType = documentType;
-    }
 }
-
 

@@ -1,13 +1,13 @@
-package com.Louzano.ProjetoBancoLucas.dto;
+package com.Louzano.ProjetoBancoLucas.controller.response;
 
-public class UserSystemDto {
+public class UserSystemUserId {
     private String name;
     private int documentType;
 
-    public UserSystemDto() {
+    public UserSystemUserId() {
     }
 
-    public UserSystemDto(String name, int documentType) {
+    public UserSystemUserId(String name, int documentType) {
         this.name = name;
         this.documentType = documentType;
     }
@@ -28,3 +28,4 @@ public class UserSystemDto {
         this.documentType = documentType;
     }
 }
+

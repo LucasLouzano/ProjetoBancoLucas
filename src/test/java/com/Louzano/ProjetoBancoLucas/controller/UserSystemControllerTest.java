@@ -1,7 +1,7 @@
 //package com.Louzano.ProjetoBancoLucas.controller;
 //
 //import com.Louzano.ProjetoBancoLucas.dto.UserSystemDto;
-//import com.Louzano.ProjetoBancoLucas.mapper.UserSystemMapper;
+//import com.Louzano.ProjetoBancoLucas.mapper.UserSystemResponseMapper;
 //import com.Louzano.ProjetoBancoLucas.model.UserSystem;
 //import com.Louzano.ProjetoBancoLucas.service.impl.UserSystemServiceImpl;
 //import org.junit.Before;
@@ -25,7 +25,7 @@
 //    @Mock
 //    private UserSystemServiceImpl service;
 //    @Mock
-//    private UserSystemMapper userSystemMapper;
+//    private UserSystemResponseMapper userSystemMapper;
 //
 //    @Before
 //    public void setUp() {

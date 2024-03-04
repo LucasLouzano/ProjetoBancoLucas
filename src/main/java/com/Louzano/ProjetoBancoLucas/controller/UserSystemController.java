@@ -1,5 +1,11 @@
 package com.Louzano.ProjetoBancoLucas.controller;
 
+import com.Louzano.ProjetoBancoLucas.controller.mapper.UserSystemResponseMapper;
+import com.Louzano.ProjetoBancoLucas.controller.mapper.UserSystemSaveMapper;
+import com.Louzano.ProjetoBancoLucas.controller.mapper.UserSystemUserIdMapper;
+import com.Louzano.ProjetoBancoLucas.controller.response.UserSystemResponse;
+import com.Louzano.ProjetoBancoLucas.controller.response.UserSystemSave;
+import com.Louzano.ProjetoBancoLucas.controller.response.UserSystemUserId;
 import com.Louzano.ProjetoBancoLucas.dto.UserSystemDto;
 import com.Louzano.ProjetoBancoLucas.model.UserSystem;
 import com.Louzano.ProjetoBancoLucas.service.impl.UserSystemServiceImpl;
@@ -16,27 +22,37 @@ import java.util.UUID;
 public class UserSystemController {
     @Autowired
     private UserSystemServiceImpl service;
+    @Autowired
+    private UserSystemResponseMapper response;
+    @Autowired
+    private UserSystemSaveMapper UserSystemSaveMapper;
+    @Autowired
+    private UserSystemUserIdMapper userSystemUserIdMapper;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserSystemDto> getUsersDTO(@PathVariable UUID userId) {
+    public ResponseEntity<UserSystemUserId> getUsersDTO(@PathVariable UUID userId) {
         UserSystemDto userSystemDto = service.findById(userId);
-        if (userSystemDto == null) {
+        UserSystemUserId userSystemUserId = userSystemUserIdMapper.mapDtoToUserId(userSystemDto);
+        if (userSystemUserId == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(userSystemDto);
+        return ResponseEntity.ok(userSystemUserId);
     }
+
     @GetMapping
-    public ResponseEntity<List<UserSystemDto>> getAllUserSystem(){
+    public ResponseEntity<List<UserSystemResponse>> getAllUserSystem() {
         List<UserSystemDto> usersDto = service.findAll();
-        if (usersDto.isEmpty()){
+        List<UserSystemResponse> userSystemResponse = response.mapDtoToResponse(usersDto);
+        if (userSystemResponse.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(usersDto);
+        return ResponseEntity.ok(userSystemResponse);
     }
 
     @PostMapping
-    public ResponseEntity<UserSystemDto> createUser(@RequestBody UserSystem userSystem) {
+    public ResponseEntity<UserSystemSave> createUser(@RequestBody UserSystem userSystem) {
         UserSystemDto user = service.save(userSystem);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        UserSystemSave userSystemSave = UserSystemSaveMapper.mapDtoToSave(user);
+        return new ResponseEntity<>(userSystemSave, HttpStatus.CREATED);
     }
 }

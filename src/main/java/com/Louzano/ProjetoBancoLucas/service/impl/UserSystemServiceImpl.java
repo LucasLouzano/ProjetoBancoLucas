@@ -7,6 +7,7 @@ import com.Louzano.ProjetoBancoLucas.service.UserSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -32,7 +33,7 @@ public class UserSystemServiceImpl implements UserSystemService {
 
     @Override
     public UserSystemDto save(UserSystem userSystem) {
-        if (userSystem != null) {
+        if (Objects.nonNull(userSystem)){
             UserSystem savedUserSystem = userSystemRepository.save(userSystem);
             return userSystemMapper.userSystemToUserSystemDTO(savedUserSystem);
         }
